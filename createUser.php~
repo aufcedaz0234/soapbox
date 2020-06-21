@@ -7,7 +7,7 @@ include('mail.php');
 class createUser {
 
     //public $functionsClassInstance = new helperFunctions();
-    public $mailVerificationClass = new mailVerification();
+    public $mailVerificationClass = new mailVerification;
 
     public $avatar;
     public $bio;
