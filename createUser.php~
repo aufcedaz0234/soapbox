@@ -7,7 +7,7 @@ include('mail.php');
 class createUser {
 
     //public $functionsClassInstance = new helperFunctions();
-    public $mailVerificationClass = new mailVerification;
+    public $mailVerificationClass;
 
     public $avatar;
     public $bio;
@@ -19,6 +19,10 @@ class createUser {
     public $email;
     public $doc;
     public $last_logged_in;
+
+    public __construct() {
+        $this->$mailVerificationClass = new mailVerification();
+    }
 
        public function addUser(PDO $pdo) {
 	// add user info to db
