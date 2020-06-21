@@ -2,10 +2,12 @@
 require('dbcon/dbcon.php');
 include('fileUpload.php');
 include('functions.php');
+include('mail.php');
 
 class createUser {
 
     //public $functionsClassInstance = new helperFunctions();
+    public $mailVerificationClass = new mailVerification;
 
     public $avatar;
     public $bio;
@@ -47,7 +49,9 @@ class createUser {
 
 	    // if user uploads file, add path and file to database and server, if not revert to default.
             if ($_FILES["avatar"]["error"] == 4) {
-	        $query->execute();
+		    $query->execute();
+		    $mailVerificationClass->sendVerificationEmail($email);
+		    
 	    } elseif ($_FILES["avatar"]["error"] != 4) {
 	        $file = new fileUpload();
 		$file->processFile();
@@ -63,6 +67,7 @@ class createUser {
 		$query->bindValue(':avatar', $avatar);
 		$query->bindValue(':verification_key', $verification_key);
 	        $query->execute();
+		$mailVerificationClass->sendVerificationEmail($email);
 	    }
 	    // create variables
 	    // initialize variables
