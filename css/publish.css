@@ -1,0 +1,42 @@
+/* This is the publish.css file */
+
+.wrapper {
+	margin: 0 auto 0 665px;
+}
+
+.asterik {
+	color: red;
+}
+
+.body-span {
+  	position: relative;
+	top: -375px;
+}
+
+input, textarea {
+	border-radius: 5px;
+	border: 1px solid #000000;
+}
+
+textarea {
+	position: relative;
+	left: -2.5px;
+}
+
+input[type="submit"] {
+	background-color: #66FF00;
+	border-color: #66FF00;
+	color: #FFFFFF;
+	border-style: none;
+	height: 30px;
+	position: absolute;
+	left: 1000px;
+}
+
+.error-msg {
+	color: red;
+	text-align: center;
+	position: relative;
+	bottom: -120px;
+	left: 915px;
+}

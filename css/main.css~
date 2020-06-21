@@ -1,0 +1,9 @@
+.section {
+	outline-color: red;
+	margin-bottom: 50px;
+	height: 300px;
+}
+
+.container {
+	margin-top: 100px;
+}

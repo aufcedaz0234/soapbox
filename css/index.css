@@ -1,0 +1,42 @@
+/*This is the CSS file for the home.html page.*/
+/* Download Monserrat font files and keep them stored here locally, switch some code to reflect that*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html * {
+  font-family: 'Monserrat', sans-serif;
+}
+
+#acctlink {
+  margin-left: 1100px;
+  color: #FFFFFF;
+}
+
+img.close-icon {
+  height: 30px;
+  margin-left: 280px;
+  margin-top: 5px;
+  width: 30px;
+  cursor: pointer;
+}
+
+p.signup-sub {
+  font-weight: bold;
+  text-align: center;
+}
+
+input {
+  margin-left: 80px;
+}
+
+input[type="submit"] {
+  background-color: #FFFFFF;
+  font-weight: bold;
+  margin-left: 130px;
+  margin-top: 10px;
+}
+
+.login {
+  color: #000000;
+}

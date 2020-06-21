@@ -1,0 +1,4 @@
+<?php
+
+// mail.php - create email post-registration and send it to specified email address.
+?>
