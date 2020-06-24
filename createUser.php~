@@ -7,7 +7,7 @@ include('mail.php');
 class createUser {
 
     //public $functionsClassInstance = new helperFunctions();
-    public $mailVerificationClass;
+    public $mailVerificationClass = "default";
 
     public $avatar;
     public $bio;
@@ -20,11 +20,11 @@ class createUser {
     public $doc;
     public $last_logged_in;
 
-    public __construct() {
-        $this->$mailVerificationClass = new mailVerification();
+    public function __construct() {
+        $this->mailVerificationClass = new mailVerification;
     }
 
-       public function addUser(PDO $pdo) {
+    public function addUser(PDO $pdo) {
 	// add user info to db
 	    $avatar = "/assets/soap.jpg";
 	    $username = strip_tags(trim($_POST['username']));
@@ -73,6 +73,7 @@ class createUser {
 	        $query->execute();
 		$mailVerificationClass->sendVerificationEmail($email);
 	    }
+	    var_dump($email);
 	    // create variables
 	    // initialize variables
 	    // bind values of variables being entered into database

@@ -7,7 +7,7 @@ include('mail.php');
 class createUser {
 
     //public $functionsClassInstance = new helperFunctions();
-    public $mailVerificationClass;
+    public $mailVerificationClass = "default";
 
     public $avatar;
     public $bio;
@@ -21,10 +21,10 @@ class createUser {
     public $last_logged_in;
 
     public function __construct() {
-        $this->$mailVerificationClass = new mailVerification();
+        $this->mailVerificationClass = new mailVerification;
     }
 
-       public function addUser(PDO $pdo) {
+    public function addUser(PDO $pdo) {
 	// add user info to db
 	    $avatar = "/assets/soap.jpg";
 	    $username = strip_tags(trim($_POST['username']));
@@ -78,6 +78,7 @@ class createUser {
 	    // bind values of variables being entered into database
        }
 
+    var_dump($email);
 }
 
 // this file is responsible for creating the users

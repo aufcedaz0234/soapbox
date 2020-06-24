@@ -61,7 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             $format = "The data provided has been sent to the server and is being inserted into the database. In order to complete the process, %s, we need you to confirm your account. If not confirmed, your account will be deleted a month from the marked registration date. We have sent you an email at %s, the provided email upon registration. Thank you and cheers! - The Staff at Soapbox";
 
-                            echo sprintf($format, $username, $email);
+			    echo sprintf($format, $username, $email);
+
+			    // send email to user with verification key
 				session_destroy();
 			?>
 		</body>
