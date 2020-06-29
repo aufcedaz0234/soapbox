@@ -2,12 +2,11 @@
 require('dbcon/dbcon.php');
 include('fileUpload.php');
 include('functions.php');
-include('mail.php');
 
 class createUser {
 
     //public $functionsClassInstance = new helperFunctions();
-    public $mailVerificationClass = "default";
+   // public $mailVerificationClass = "default";
 
     public $avatar;
     public $bio;
@@ -19,10 +18,6 @@ class createUser {
     public $email;
     public $doc;
     public $last_logged_in;
-
-    public function __construct() {
-        $this->mailVerificationClass = new mailVerification;
-    }
 
     public function addUser(PDO $pdo) {
 	// add user info to db
@@ -54,8 +49,6 @@ class createUser {
 	    // if user uploads file, add path and file to database and server, if not revert to default.
             if ($_FILES["avatar"]["error"] == 4) {
 		    $query->execute();
-		    $mailVerificationClass->sendVerificationEmail($email);
-		    
 	    } elseif ($_FILES["avatar"]["error"] != 4) {
 	        $file = new fileUpload();
 		$file->processFile();
@@ -71,14 +64,12 @@ class createUser {
 		$query->bindValue(':avatar', $avatar);
 		$query->bindValue(':verification_key', $verification_key);
 	        $query->execute();
-		$mailVerificationClass->sendVerificationEmail($email);
 	    }
 	    // create variables
 	    // initialize variables
 	    // bind values of variables being entered into database
        }
 
-    var_dump($email);
 }
 
 // this file is responsible for creating the users
